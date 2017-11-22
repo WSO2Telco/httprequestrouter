@@ -5,23 +5,12 @@ This application will use to send the callback from Gateway to Hub.
 ## How to configure
 ### Database setup
 	Create new database on a MySql .Run the  dbscripts/database.sql . Open the HTTPRequestRouter.war file . Locate the file conf.properties at /WEB-INF/classes/.Edit the jdbc.APP.url,jdbc.APP.username,jdbc.APP.password properties as acordingly.
-	```
-		jdbc.APP.url=jdbc:mysql://localhost:3306/requestrouter
-		jdbc.APP.username=root
-		jdbc.APP.password=4321
-	```
-Method 				: 	POST
-Request URL 		: 	http://localhost:8080/HTTPRequestRouter/route/<KEY>/?org=<ENCODED URL>
+	jdbc.APP.url=jdbc:mysql://localhost:3306/requestrouter
+	jdbc.APP.username=root
+	jdbc.APP.password=4321
 
-
-Instructions for configure the HTTPRequestRouter application
-
-1.	Create a database on mysql
-		Eg : requestrouter
-
-2.	Excute the database.sql in dbscripts folder on that created database
-
-3.	Add records to the headers table
+### Metadata
+####	Add records to the headers table
 
 		domain : 	domain or ip 
 				Eg :	abc.lk or 10.2.3.4
@@ -40,7 +29,7 @@ Instructions for configure the HTTPRequestRouter application
 						ADD - Add the new header 
 						APPEND - if the request contains the same header, requestrouter append the new header value to the header
 
-4. 	Add records to the replacebody table (Using values in this table we can replace any json value in body. if there is no any value to replace you don't need to add records to this table)
+####	Add records to the replacebody table (Using values in this table we can replace any json value in body. if there is no any value to replace you don't need to add records to this table)
 
 		urlKey :	<KEY> value in the request url
 				Eg :	MIFE-HUB-USSD
@@ -53,8 +42,6 @@ Instructions for configure the HTTPRequestRouter application
 				Eg : 0 -  nothing will url decode
 					 1 -  url in the request body will url decode
 
-5.	Change the properties in conf.properties file in the following path according the mysql server 
-		File path - HTTPRequestRouter\src\main\resources
 
 
 Instructions for integrate HTTPRequestRouter with Gateway
