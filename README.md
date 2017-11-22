@@ -1,9 +1,9 @@
-======================================================================================================================================
+
 Application Name 	: 	HTTPRequestRouter
 Description 		: 	This application will use to send the callback from Gateway to Hub.
 Method 				: 	POST
 Request URL 		: 	http://localhost:8080/HTTPRequestRouter/route/<KEY>/?org=<ENCODED URL>
-======================================================================================================================================
+
 
 Instructions for configure the HTTPRequestRouter application
 
