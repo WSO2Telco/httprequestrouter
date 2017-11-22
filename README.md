@@ -5,12 +5,11 @@ This application will use to send the callback from Gateway to Hub.
 ## How to configure
 ### Database setup
 	Create new database on a MySql .Run the  dbscripts/database.sql . Open the HTTPRequestRouter.war file . Locate the file conf.properties at /WEB-INF/classes/.Edit the jdbc.APP.url,jdbc.APP.username,jdbc.APP.password properties as acordingly.
-	[code]
+	```
 		jdbc.APP.url=jdbc:mysql://localhost:3306/requestrouter
 		jdbc.APP.username=root
 		jdbc.APP.password=4321
-
-	[code]
+	```
 Method 				: 	POST
 Request URL 		: 	http://localhost:8080/HTTPRequestRouter/route/<KEY>/?org=<ENCODED URL>
 
