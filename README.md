@@ -29,7 +29,8 @@ This application will use to send the callback from Gateway to Hub.
 						ADD - Add the new header 
 						APPEND - if the request contains the same header, requestrouter append the new header value to the header
 
-####	Add records to the replacebody table (Using values in this table we can replace any json value in body. if there is no any value to replace you don't need to add records to this table)
+####	Add records to the replacebody table 
+	Using values in this table we can replace any json value in body. if there is no any value to replace you don't need to add records to this table
 
 		urlKey :	<KEY> value in the request url
 				Eg :	MIFE-HUB-USSD
@@ -42,12 +43,10 @@ This application will use to send the callback from Gateway to Hub.
 				Eg : 0 -  nothing will url decode
 					 1 -  url in the request body will url decode
 
+Start the tomcat and make sure no erros are at the log.
 
-
-Instructions for integrate HTTPRequestRouter with Gateway
-
-1. Configure the requestRouterUrl property in AxiataMediator-1.0.0.jar as following
-
+### Gateway configurations
+locate mediator-conf.properties file at <ESB-HOME>\repository\conf\ folder. Define property "requestRouterUrl" at the conf.properties file if not exists.
 	requestRouterUrl=http://<HOST>:<PORT>/HTTPRequestRouter/route/<KEY>/?org=
 		Eg : requestRouterUrl=http://localhost:8080/HTTPRequestRouter/route/MIFE-HUB-USSD/?org=
 
