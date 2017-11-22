@@ -1,4 +1,3 @@
-# httprequestrouter
 ======================================================================================================================================
 Application Name 	: 	HTTPRequestRouter
 Description 		: 	This application will use to send the callback from Gateway to Hub.
