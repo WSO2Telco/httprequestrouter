@@ -1,6 +1,16 @@
 
-Application Name 	: 	HTTPRequestRouter
-Description 		: 	This application will use to send the callback from Gateway to Hub.
+# HTTPRequestRouter
+This application will use to send the callback from Gateway to Hub.
+
+## How to configure
+### Database setup
+	Create new database on a MySql .Run the  dbscripts/database.sql . Open the HTTPRequestRouter.war file . Locate the file conf.properties at /WEB-INF/classes/.Edit the jdbc.APP.url,jdbc.APP.username,jdbc.APP.password properties as acordingly.
+	[code]
+		jdbc.APP.url=jdbc:mysql://localhost:3306/requestrouter
+		jdbc.APP.username=root
+		jdbc.APP.password=4321
+
+	[code]
 Method 				: 	POST
 Request URL 		: 	http://localhost:8080/HTTPRequestRouter/route/<KEY>/?org=<ENCODED URL>
 
@@ -47,7 +57,7 @@ Instructions for configure the HTTPRequestRouter application
 5.	Change the properties in conf.properties file in the following path according the mysql server 
 		File path - HTTPRequestRouter\src\main\resources
 
-====================================================================================================================================
+
 Instructions for integrate HTTPRequestRouter with Gateway
 
 1. Configure the requestRouterUrl property in AxiataMediator-1.0.0.jar as following
@@ -55,4 +65,4 @@ Instructions for integrate HTTPRequestRouter with Gateway
 	requestRouterUrl=http://<HOST>:<PORT>/HTTPRequestRouter/route/<KEY>/?org=
 		Eg : requestRouterUrl=http://localhost:8080/HTTPRequestRouter/route/MIFE-HUB-USSD/?org=
 
-=====================================================================================================================================
+
