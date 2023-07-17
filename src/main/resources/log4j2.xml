@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~
+  ~  © Copyrights 2021 Axiata Digital Labs Pvt Ltd.
+  ~  All Rights Reserved.
+  ~
+  ~  These material are unpublished, proprietary, confidential source
+  ~  code of Axiata Digital Labs Pvt Ltd (ADL) and constitute a TRADE
+  ~  SECRET of ADL.
+  ~
+  ~  ADL retains all title to and intellectual property rights in these
+  ~  materials.
+  ~
+  -->
+
+<Configuration status="INFO" packages="com.wso2telco.gateway.requestRouter" monitorInterval="5">
+    <Properties>
+        <property name="LOG_HOME" value="$${sys:catalina.base}/logs/wso2telco/HTTPRequestRouter_logs" />
+    </Properties>
+
+    <Appenders>
+        <RollingRandomAccessFile name="request-router-logger" fileName="${LOG_HOME}/HTTPRequestRouter_logs.log"
+                                 filePattern="${LOG_HOME}/HTTPRequestRouter_logs-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>[%d{yyy-MM-dd HH:mm:ss.SSS}] [%t] %-5level {REQUEST_ROUTER_LOGGER} - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <CronTriggeringPolicy schedule="0 0 0 * * ?"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <RollingRandomAccessFile name="FileAppender" fileName="${LOG_HOME}/HTTPRequestRouter_logs.log"
+                                 filePattern="${LOG_HOME}/HTTPRequestRouter_logs-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <Pattern>[%d{yyy-MM-dd HH:mm:ss.SSS}] [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <CronTriggeringPolicy schedule="0 0 0 * * ?"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+
+        <!--This is for enabling request-response logging. Set level to INFO to enable-->
+        <Logger name="com.wso2telco.gateway.requestRouter" level="INFO"
+                includeLocation="true" additivity="false">
+            <AppenderRef ref="request-router-logger" />
+        </Logger>
+
+    </Loggers>
+</Configuration>

@@ -3,7 +3,8 @@ package com.wso2telco.gateway.requestRouter;
 import com.wso2telco.gateway.requestRouter.model.HeaderModel;
 import com.wso2telco.gateway.requestRouter.model.HeaderModes;
 import com.wso2telco.gateway.requestRouter.model.ReplaceBodyModel;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -29,7 +30,7 @@ public class DatabaseLibrary {
     }
 
     public DatabaseLibrary() {
-        logger = Logger.getLogger(DatabaseLibrary.class);
+        logger = LogManager.getLogger(DatabaseLibrary.class);
     }
 
     public static ArrayList<HeaderModel> getHeaders(String domain) {

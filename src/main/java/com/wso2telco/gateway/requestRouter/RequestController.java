@@ -6,7 +6,8 @@ import com.wso2telco.gateway.requestRouter.model.HeaderModel;
 import com.wso2telco.gateway.requestRouter.model.HeaderModes;
 import com.wso2telco.gateway.requestRouter.model.ReplaceBodyModel;
 import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -163,7 +164,7 @@ public class RequestController {
     }
 
     public RequestController() {
-        log = Logger.getLogger(RequestController.class);
+        log = LogManager.getLogger(RequestController.class);
 
         /*
         setting SSL certificate validation skip
